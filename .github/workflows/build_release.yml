@@ -100,3 +100,8 @@ jobs:
           append_body: true
           files: |
             dist/gkd-subscription-offline-id890-v${{ steps.version.outputs.version }}.json5
+  push_to_server:
+      needs: build_release
+      if: ${{ needs.build_release.outputs.version != '' }}
+      uses: ./.github/workflows/push_to_server.yml
+      secrets: inherit
