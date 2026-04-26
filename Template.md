@@ -2,7 +2,7 @@
 
 <!-- [![SVG Banners](https://svg-banners.vercel.app/api?type=luminance&text1=GKD_subscription&width=800&height=300)](https://github.com/nanzhinet/NanYi) -->
 
-[![SVG Banners](https://svg-banners.vercel.app/api?type=origin&text1=GKD第三方订阅规则&text2=💖%20GKD_subscription&width=800&height=350)](https://github.com/nanzhinet/NanYi)
+[![SVG Banners](https://svg-banners.vercel.app/api?type=origin&text1=GKD第三方订阅规则&text2=💖%20NanYi&width=800&height=350)](https://github.com/nanzhinet/NanYi)
 
 [![Release](https://img.shields.io/badge/发行版-v{{VERSION}}-blue)](https://github.com/nanzhinet/NanYi/releases/latest)
 [![已适配应用](https://img.shields.io/badge/已适配应用-{{APP_SIZE}}-brightgreen)](./dist/README.md#应用规则)
