@@ -6,7 +6,7 @@ export default defineGkdApp({
   groups: [
     {
       key: 1,
-      name: '广告-红果免费短剧上滑继续观看',
+      name: '全屏广告-红果免费短剧上滑继续观看',
       activityIds: [
         'com.dragon.read.component.shortvideo.impl.ShortSeriesActivity',
       ],
