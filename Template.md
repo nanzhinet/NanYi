@@ -88,7 +88,7 @@
 
 ![img](https://contrib.rocks/image?repo=nanzhinet/NanYi&max=200&_v={{VERSION}})
 
-![Alt](https://repobeats.axiom.co/api/embed/db6f46a4bdc4e760fb51976db276f1febef5bdce.svg "报告分析图")
+![Alt](https://repobeats.axiom.co/api/embed/1d734e38e143a05ef32627c912f77c12909c401f.svg "报告分析图")
 
 ## 📈Star History
 
