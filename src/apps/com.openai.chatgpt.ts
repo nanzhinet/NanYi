@@ -1,0 +1,123 @@
+import { defineGkdApp } from '@gkd-kit/define';
+
+export default defineGkdApp({
+  id: 'com.openai.chatgpt',
+  name: 'ChatGPT',
+  groups: [
+    {
+      key: 1,
+      name: '通知提示-套餐限额提示',
+      rules: [
+        {
+          key: 0,
+          activityIds: '.MainActivity',
+          matches:
+            'View[childCount=3] >2 [text="获取 Plus"][visibleToUser=true] < View[childCount=2] - @View[clickable=true] > [desc="关闭"]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/24996012',
+            'https://i.gkd.li/i/24996012',
+          ],
+          exampleUrls: 'https://e.gkd.li/7c9669de-f7b9-48da-a0d0-cb296b68692b',
+        },
+      ],
+    },
+    {
+      key: 2,
+      name: '功能类-ban话题提前阻断屏蔽',
+      desc: '再次生成-总结/结尾标志终止',
+      activityIds: '.MainActivity',
+      rules: [
+        {
+          key: 0,
+          name: '长按',
+          matches:
+            '[text^="出于安全考虑"][visibleToUser=true] - @View[clickable=true] > TextView',
+          action: 'longClickCenter', // 应用不接受无障碍事件
+          snapshotUrls: 'https://i.gkd.li/i/26232942',
+          exampleUrls: 'https://e.gkd.li/dfe0c486-00ef-4cdd-be32-9eb2306472f5',
+        },
+        {
+          key: 1,
+          name: '编辑',
+          preKeys: [0],
+          position: {
+            left: 'width * 0.7972',
+            top: 'width * 0.5347',
+          },
+          matches:
+            '[text^="出于安全考虑"][visibleToUser=true] <n View[childCount=3]',
+          snapshotUrls: 'https://i.gkd.li/i/26233112',
+          exampleUrls: 'https://e.gkd.li/f1edecab-d7f5-4f2f-8af7-daeb5ded16f7',
+        },
+        {
+          key: 2,
+          name: '发送消息',
+          preKeys: [1],
+          matches:
+            'EditText >3 @View[childCount=2][clickable=true] > [desc="发送消息"][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/26233149',
+          exampleUrls: 'https://e.gkd.li/8f4ff7c8-d5a7-4d47-bc01-14b54d9b6b24',
+        },
+        {
+          name: '1.“总结”中断',
+          preKeys: [2],
+          actionDelay: 1200,
+          matches: [
+            'View[focusable=true] > [text*="总结"]',
+            'EditText >3 @View[childCount=2][clickable=true] > [desc="停止"][visibleToUser=true]',
+          ],
+          snapshotUrls: 'https://i.gkd.li/i/26233512',
+          exampleUrls: 'https://e.gkd.li/2e88e6ee-b21d-4d26-b9dc-13fa75fc883f',
+        },
+        {
+          name: '2.“结尾标志”中断',
+          preKeys: [2],
+          matches: [
+            'View[focusable=true] > [text="make_Done"] + [text="make_Done"]',
+            'EditText >3 @View[childCount=2][clickable=true] > [desc="停止"][visibleToUser=true]',
+          ],
+          snapshotUrls: 'https://i.gkd.li/i/26233630',
+          exampleUrls: 'https://e.gkd.li/0eabe194-4f53-4f45-8aa3-a23a7898b2e0',
+        },
+        {
+          key: 3,
+          preKeys: [2],
+          name: '自动滚动至底部',
+          matches:
+            'Button - View[desc="滚动至底部"][visibleToUser=true] < @View[childCount=2][clickable=true]',
+          snapshotUrls: 'https://i.gkd.li/i/26233818',
+          exampleUrls: 'https://e.gkd.li/9b6643fa-6791-481c-8f9f-bb24c65678af',
+        },
+      ],
+    },
+    {
+      key: 3,
+      name: '局部广告',
+      rules: [
+        {
+          activityIds: '.MainActivity',
+          matchTime: 18000,
+          resetMatch: 'app',
+          matches:
+            '[text="获取 Plus"] < View + @View[clickable=true][childCount=2] > [desc="关闭"] + Button',
+          snapshotUrls: 'https://i.gkd.li/i/26234095',
+          exampleUrls: 'https://e.gkd.li/dd8a2887-ea64-466d-b270-de7568b55af4',
+        },
+      ],
+    },
+    {
+      key: 4,
+      name: '通知提示-聊天记忆容量警告',
+      desc: 'x掉通知',
+      rules: [
+        {
+          activityIds: '.MainActivity',
+          matches:
+            'View[childCount=5] >2 [text="升级"][visibleToUser=true] < View[childCount=3] - @View[clickable=true] > [desc="关闭"]',
+          snapshotUrls: 'https://i.gkd.li/i/26647576',
+          exampleUrls: 'https://e.gkd.li/a53e015f-2b08-4177-80aa-b516d213b333',
+        },
+      ],
+    },
+  ],
+});

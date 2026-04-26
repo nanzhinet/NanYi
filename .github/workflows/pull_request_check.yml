@@ -1,0 +1,62 @@
+name: pull_request_check
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出仓库代码
+        uses: actions/checkout@v4
+
+      - name: 获取 PR 变更文件列表
+        id: changed_files
+        uses: tj-actions/changed-files@v46
+        with:
+          files: |
+            src/apps/*.ts
+            src/categories.ts
+            src/globalGroups.ts
+            src/subscription.ts
+
+      - name: 校验订阅文件变更数量
+        run: |
+          for file in ${{ steps.changed_files.outputs.all_changed_files }}; do
+            echo "$file was changed"
+          done
+          if [ ${{ steps.changed_files.outputs.all_changed_files_count }} -gt 1 ]; then
+            echo "your src subscription changed files count must <= 1"
+            exit 1
+          fi
+
+      - name: 配置 Node.js 运行环境
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: 配置 pnpm 包管理器
+        uses: pnpm/action-setup@v4
+
+      - name: 安装项目依赖
+        run: pnpm install
+
+      - name: 执行项目检查
+        run: pnpm run check
+
+      - name: 执行代码格式化
+        run: pnpm run format
+
+      - name: 执行代码静态检查
+        run: pnpm run lint
+
+      - name: 校验代码格式化结果
+        run: |
+          status=$(git status --porcelain)
+          if [ -n "$status" ]; then
+            echo "Something wasn’t formatted properly"
+            git --no-pager diff
+            exit 1
+          fi
