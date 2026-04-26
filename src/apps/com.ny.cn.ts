@@ -1,7 +1,7 @@
 import { defineGkdApp } from '@gkd-kit/define';
 
 export default defineGkdApp({
-  id: 'com.ny.cn.ts',
+  id: 'com.ny.cn',
   name: '红果测试',
   groups: [
     {
