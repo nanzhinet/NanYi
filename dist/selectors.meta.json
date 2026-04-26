@@ -1,5 +1,5 @@
 {
-  "id": "667",
+  "id": "890",
   "name": "GKD快捷选择器",
-  "selectors": "https://gkd-subscription-667.pages.dev/selectors.subscription.json"
+  "selectors": "https://raw.githubusercontent.com/nanzhinet/NanYi/refs/heads/main/dist/selectors.subscription.json"
 }
