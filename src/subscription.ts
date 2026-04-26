@@ -16,7 +16,7 @@ apps.forEach((appConfig) => {
 });
 
 export default defineGkdSubscription({
-  id: 667,
+  id: 890,
   name: 'NanYi的GKD订阅🚀',
   version: 1,
   author: '👻',
