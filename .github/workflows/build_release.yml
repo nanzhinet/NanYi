@@ -2,8 +2,8 @@ name: build_release
 
 on:
   schedule:
-    - cron: '0 19 * * *'  # 每天19点运行
-  workflow_dispatch:       # 支持手动触发
+    - cron: '0 19 * * *'
+  workflow_dispatch:
 
 jobs:
   check_changes:
@@ -47,12 +47,10 @@ jobs:
       - name: 配置 Node.js 运行环境
         uses: actions/setup-node@v4
         with:
-          node-version: 22  # 根据您的 engines.node: ">=22"
+          node-version: 25
 
       - name: 配置 pnpm 包管理器
         uses: pnpm/action-setup@v4
-        with:
-          version: 10.25.0  # 根据您的 packageManager: pnpm@10.25.0
 
       - name: 安装项目依赖
         run: pnpm install
@@ -63,44 +61,42 @@ jobs:
       - name: 生成版本号
         id: version
         run: |
-          # 从 package.json 读取版本
-          version=$(node -p "require('./package.json').version")
-          echo "version=${version}" >> $GITHUB_OUTPUT
+          version=$(node -e "import('@gkd-kit/tools').then((m) => m.stdoutGkdVersion());")
+          echo "version=${version}" >> "$GITHUB_OUTPUT"
 
       - name: 提交构建产物
         id: commit
         run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add -A
-          if git diff --cached --quiet; then
-            echo "没有需要提交的更改"
-            echo "has_changes=false" >> $GITHUB_OUTPUT
-          else
-            git commit -m "chore: v${{ steps.version.outputs.version }}"
-            echo "has_changes=true" >> $GITHUB_OUTPUT
-          fi
+          git config --local user.email github-actions[bot]@users.noreply.github.com
+          git config --local user.name github-actions[bot]
+          git status
+          git add .
+          git commit -a -m "chore: v${{steps.version.outputs.version}}"
         continue-on-error: true
 
       - name: 推送代码到远程仓库
-        if: steps.commit.outputs.has_changes == 'true'
+        if: ${{ steps.commit.outcome == 'success' }}
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref_name }}
+          branch: ${{ github.ref }}
           tags: true
 
+      - name: 生成离线订阅文件（用于发行版）
+        run: |
+          cp dist/gkd.json5 "dist/gkd-subscription-offline-id667-v${{ steps.version.outputs.version }}.json5"
+
       - name: 创建 GitHub 发行版
-        if: steps.commit.outputs.has_changes == 'true'
+        id: create_release
+        if: ${{ steps.commit.outcome == 'success' }}
         uses: softprops/action-gh-release@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: v${{ steps.version.outputs.version }}
           name: v${{ steps.version.outputs.version }}
-          body_path: dist/CHANGELOG.md
+          body_path: ./dist/CHANGELOG.md
           generate_release_notes: true
           append_body: true
           files: |
-            dist/gkd.json5
-            dist/gkd.version.json5
+            dist/gkd-subscription-offline-id667-v${{ steps.version.outputs.version }}.json5
