@@ -20,7 +20,7 @@ body:
           required: true
         - label: 如果是多次点击才能生效的情况，我已提供**每一次点击的快照**
           required: true
-        - label: 我已确认使用的是 **最新版订阅** [![GitHub Release](https://img.shields.io/github/v/release/Lin-arm/GKD_subscription)](https://github.com/Lin-arm/GKD_subscription/releases/latest) 和 **最新版GKD** [![GitHub Release](https://img.shields.io/github/v/release/gkd-kit/gkd)](https://github.com/gkd-kit/gkd/releases/latest)
+        - label: 我已确认使用的是 **最新版订阅** [![GitHub Release](https://img.shields.io/github/v/release/nanzhinet/NanYi)](https://github.com/nanzhinet/NanYi/releases/latest) 和 **最新版GKD** [![GitHub Release](https://img.shields.io/github/v/release/gkd-kit/gkd)](https://github.com/gkd-kit/gkd/releases/latest)
           required: true
 
   - type: checkboxes
@@ -41,7 +41,7 @@ body:
         快照是一个 zip 文件，快照链接是类似 "https://i.gkd.li/i/XXXXXXXX" 的文本，按照如下方式可获得快照信息
 
         按照下面的截图示例来获取界面快照，上传文件或者生成链接并粘贴到下面的输入框\
-        ![img](https://raw.githubusercontent.com/Lin-arm/GKD_subscription/refs/heads/main/docs/images/Snapshot.webp)
+        ![img](https://raw.githubusercontent.com/nanzhinet/NanYi/refs/heads/main/docs/images/Snapshot.webp)
     validations:
       required: true
 
