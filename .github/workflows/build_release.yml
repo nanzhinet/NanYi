@@ -99,4 +99,4 @@ jobs:
           generate_release_notes: true
           append_body: true
           files: |
-            dist/gkd-subscription-offline-id667-v${{ steps.version.outputs.version }}.json5
+            dist/gkd-subscription-offline-id890-v${{ steps.version.outputs.version }}.json5
