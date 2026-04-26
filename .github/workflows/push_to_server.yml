@@ -1,6 +1,7 @@
 name: push_to_server
 on:
   workflow_dispatch:
+  workflow_call:
 jobs:
   push:
     runs-on: ubuntu-latest
