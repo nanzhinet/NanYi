@@ -19,7 +19,7 @@ export default defineGkdSubscription({
   id: 890,
   name: 'NanYi的GKD订阅🚀',
   version: 1,
-  author: '👻',
+  author: '南逸👻',
   checkUpdateUrl: './gkd.version.json5',
   supportUri: 'https://github.com/nanzhinet/NanYi/issues/new/choose',
   categories,
