@@ -1,13 +1,14 @@
-<!-- # @AIsouler/GKD_subscription (Fork版) -->
+<!-- # @nanzhinet/NanYi (Fork版) -->
 
-<!-- [![SVG Banners](https://svg-banners.vercel.app/api?type=luminance&text1=GKD_subscription&width=800&height=300)](https://github.com/Lin-arm/GKD_subscription) -->
+<!-- [![SVG Banners](https://svg-banners.vercel.app/api?type=luminance&text1=GKD_subscription&width=800&height=300)](https://github.com/nanzhinet/NanYi) -->
 
-[![SVG Banners](https://svg-banners.vercel.app/api?type=origin&text1=GKD第三方订阅规则&text2=💖%20GKD_subscription&width=800&height=350)](https://github.com/Lin-arm/GKD_subscription)
+[![SVG Banners](https://svg-banners.vercel.app/api?type=origin&text1=GKD第三方订阅规则&text2=💖%20NanYi&width=800&height=350)](https://github.com/nanzhinet/NanYi)
 
-[![Release](https://img.shields.io/badge/发行版-v3-blue)](https://github.com/Lin-arm/GKD_subscription/releases/latest)
+[![Release](https://img.shields.io/badge/发行版-v4-blue)](https://github.com/nanzhinet/NanYi/releases/latest)
 [![已适配应用](https://img.shields.io/badge/已适配应用-933-brightgreen)](./dist/README.md#应用规则)
 [![全局规则组](https://img.shields.io/badge/全局规则组-3-blueviolet)](./dist/README.md#全局规则)
 [![应用规则组](https://img.shields.io/badge/应用规则组-2244-orange)](./dist/README.md#应用规则)
+[![Telegram Chat](https://img.shields.io/badge/Telegram-交流群-blue.svg?logo=telegram)](https://t.me/+8L4eHePgYEZmY2M9)
 
 ## 📢声明
 
@@ -20,6 +21,11 @@
 
 复制以下任一链接到 GKD 订阅的右下角 **+** 号那里导入，即可使用
 
+- 国内源 (国内可用)
+
+  ```txt
+  https://43.226.47.51/gkd.json5
+  ```
 
 - CloudFlare源 (国内可用)
 
@@ -44,7 +50,7 @@
 
 </details>
 
-<!-- > 当前版本: v3
+<!-- > 当前版本: v4
 > 
 > 当前订阅文件已适配 933 个应用，共有 2244 应用规则组，3 全局规则组
 > 
@@ -85,9 +91,9 @@
 
 ## 🥇感谢以下开发者的贡献
 
-![img](https://contrib.rocks/image?repo=nanzhinet/NanYi&max=200&_v=3)
+![img](https://contrib.rocks/image?repo=nanzhinet/NanYi&max=200&_v=4)
 
-![Alt](https://repobeats.axiom.co/api/embed/db6f46a4bdc4e760fb51976db276f1febef5bdce.svg "报告分析图")
+![Alt](https://repobeats.axiom.co/api/embed/1d734e38e143a05ef32627c912f77c12909c401f.svg "报告分析图")
 
 ## 📈Star History
 
