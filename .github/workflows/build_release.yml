@@ -91,6 +91,13 @@ jobs:
         run: |
           cp dist/gkd.json5 "dist/gkd-subscription-offline-id890-v${{ steps.version.outputs.version }}.json5"
 
+          
+      - name: 生成 Attestation 认证文件
+        uses: actions/attest@v4
+        with:
+          subject-path: dist/gkd-subscription-offline-id890-v${{ steps.version.outputs.version }}.json5
+
+
       - name: 创建 GitHub 发行版
         id: create_release
         if: ${{ steps.commit.outcome == 'success' }}
@@ -105,21 +112,7 @@ jobs:
           append_body: true
           files: |
             dist/gkd-subscription-offline-id890-v${{ steps.version.outputs.version }}.json5
-      - name: 生成构建证明
-        if: ${{ steps.commit.outcome == 'success' }}
-        id: attest
-        uses: actions/attest-build-provenance@v2
-        with:
-          subject-path: 'dist/gkd-subscription-offline-id890-v${{ steps.version.outputs.version }}.json5'
-
-      - name: 上传证明到 Release
-        if: ${{ steps.commit.outcome == 'success' }}
-        uses: softprops/action-gh-release@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: v${{ steps.version.outputs.version }}
-          files: ${{ steps.attest.outputs.bundle-path }}     
+  
   push_to_server:
       needs: build_release
       if: ${{ needs.build_release.outputs.version != '' }}
