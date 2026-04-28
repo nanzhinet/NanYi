@@ -7,7 +7,7 @@ on:
 
 permissions:
   id-token: write
-  contents: write
+  contents: read
   attestations: write
 
 jobs:
@@ -106,6 +106,10 @@ jobs:
           append_body: true
           files: |
             dist/gkd-subscription-offline-id890-v${{ steps.version.outputs.version }}.json5
+      - name: 生成 Attestation 认证文件
+        uses: actions/attest@v4
+        with:
+          subject-path: dist/gkd-subscription-offline-id890-v${{ steps.version.outputs.version }}.json5
   
   push_to_server:
       needs: build_release
