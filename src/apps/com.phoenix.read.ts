@@ -5,7 +5,7 @@ export default defineGkdApp({
   groups: [
     {
       key: 1,
-      name: '全屏广告-广告自动上滑',
+      name: '全屏广告-广告自动上滑(新版)',
       activityIds: [
         'com.dragon.read.component.shortvideo.impl.ShortSeriesActivity',
       ],
