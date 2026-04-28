@@ -5,7 +5,7 @@ export default defineGkdApp({
   groups: [
     {
       key: 1,
-      name: '全屏广告-红果短剧广告自动上滑',
+      name: '全屏广告-广告自动上滑',
       activityIds: [
         'com.dragon.read.component.shortvideo.impl.ShortSeriesActivity',
       ],
@@ -31,7 +31,7 @@ export default defineGkdApp({
     },
     {
       key: 2,
-      name: '全屏广告-红果短剧广告自动上滑(旧版)',
+      name: '全屏广告-广告自动上滑(旧版)',
       activityIds: [
         'com.dragon.read.component.shortvideo.impl.ShortSeriesActivity',
       ],
