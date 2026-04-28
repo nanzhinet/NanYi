@@ -4,7 +4,7 @@
 
 [![SVG Banners](https://svg-banners.vercel.app/api?type=origin&text1=GKD第三方订阅规则&text2=💖%20NanYi&width=800&height=350)](https://github.com/nanzhinet/NanYi)
 
-[![Release](https://img.shields.io/badge/发行版-v4-blue)](https://github.com/nanzhinet/NanYi/releases/latest)
+[![Release](https://img.shields.io/badge/发行版-v5-blue)](https://github.com/nanzhinet/NanYi/releases/latest)
 [![已适配应用](https://img.shields.io/badge/已适配应用-933-brightgreen)](./dist/README.md#应用规则)
 [![全局规则组](https://img.shields.io/badge/全局规则组-3-blueviolet)](./dist/README.md#全局规则)
 [![应用规则组](https://img.shields.io/badge/应用规则组-2244-orange)](./dist/README.md#应用规则)
@@ -50,7 +50,7 @@
 
 </details>
 
-<!-- > 当前版本: v4
+<!-- > 当前版本: v5
 > 
 > 当前订阅文件已适配 933 个应用，共有 2244 应用规则组，3 全局规则组
 > 
@@ -91,7 +91,7 @@
 
 ## 🥇感谢以下开发者的贡献
 
-![img](https://contrib.rocks/image?repo=nanzhinet/NanYi&max=200&_v=4)
+![img](https://contrib.rocks/image?repo=nanzhinet/NanYi&max=200&_v=5)
 
 ![Alt](https://repobeats.axiom.co/api/embed/1d734e38e143a05ef32627c912f77c12909c401f.svg "报告分析图")
 
