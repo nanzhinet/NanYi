@@ -92,12 +92,6 @@ jobs:
           cp dist/gkd.json5 "dist/gkd-subscription-offline-id890-v${{ steps.version.outputs.version }}.json5"
 
           
-      - name: 生成 Attestation 认证文件
-        uses: actions/attest@v4
-        with:
-          subject-path: dist/gkd-subscription-offline-id890-v${{ steps.version.outputs.version }}.json5
-
-
       - name: 创建 GitHub 发行版
         id: create_release
         if: ${{ steps.commit.outcome == 'success' }}
