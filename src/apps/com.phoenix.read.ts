@@ -11,7 +11,7 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          name: '检测到「上滑继续观看短剧」时自动上滑',
+          name: '检测到「上滑继续观看短剧」时上滑',
           fastQuery: true,
           matches: '[vid="ang"][text="上滑继续观看短剧"][visibleToUser=true]',
           swipeArg: {
@@ -37,7 +37,7 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          name: '检测到「上滑继续观看短剧」时自动上滑',
+          name: '检测到「上滑继续观看短剧」时上滑',
           fastQuery: true,
           matches: '[vid="ana"][text="上滑继续观看短剧"][visibleToUser=true]',
           swipeArg: {
