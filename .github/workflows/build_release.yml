@@ -5,6 +5,11 @@ on:
     - cron: '0 19 * * *'
   workflow_dispatch:
 
+permissions:
+  id-token: write
+  contents: write
+  attestations: write
+
 jobs:
   check_changes:
     runs-on: ubuntu-latest
@@ -100,6 +105,11 @@ jobs:
           append_body: true
           files: |
             dist/gkd-subscription-offline-id890-v${{ steps.version.outputs.version }}.json5
+      - name: 生成构建证明
+        if: ${{ steps.commit.outcome == 'success' }}
+        uses: actions/attest@v4
+        with:
+          subject-path: 'dist/gkd-subscription-offline-id890-v${{ steps.version.outputs.version }}.json5'      
   push_to_server:
       needs: build_release
       if: ${{ needs.build_release.outputs.version != '' }}
