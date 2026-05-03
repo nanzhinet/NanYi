@@ -25,12 +25,3 @@ jobs:
           target: "/www/gkd/"
 
           
-      - name: 推送到国内服务器2
-        uses: appleboy/scp-action@master
-        with:
-          host: ${{ secrets.SERVER_HOST2 }}
-          port: ${{ secrets.SERVER_PORT2 }}  
-          username: ${{ secrets.SERVER_USER2 }}
-          key: ${{ secrets.SERVER_SSH_KEY2 }}
-          source: "dist/gkd.json5"
-          target: "/www/wwwroot/panel_ssl_site/"
